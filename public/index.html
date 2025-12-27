@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tuition AI Agent</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="title">Tuition AI Agent</div>
+      <div class="subtitle">Query Tuition • Unpaid Tuition • Pay Tuition</div>
+      <button id="clearChat" class="clear-btn">🗑️ Temizle / Clear Chat</button>
+    </header>
+
+    <main id="chat" class="chat"></main>
+
+    <footer class="composer">
+      <input id="msg" class="input" placeholder="Mesaj yaz... (örn: harç sorgulama)" />
+      <button id="send" class="btn">Gönder</button>
+    </footer>
+  </div>
+
+<script>
+  // ===== Session Management =====
+  // Use persistent session unless cleared by user
+  let sessionId = localStorage.getItem("sessionId");
+  if (!sessionId) {
+    sessionId = "sess_" + Math.random().toString(36).substring(2, 10) + "_" + Date.now();
+    localStorage.setItem("sessionId", sessionId);
+  }
+  window.SESSION_ID = sessionId;
+</script>
+
+  <script src="app-firestore.js"></script>
+</body>
+</html>

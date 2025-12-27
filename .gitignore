@@ -1,0 +1,22 @@
+# Node
+node_modules/
+
+# Environment variables
+.env
+
+# Firebase secrets
+secrets/
+**/firebase-adminsdk*.json
+firebase.json
+# IMPORTANT: firebase.json contains service account credentials
+# Do NOT commit this file to public repositories
+
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Claude files
+.claude/
+nul
